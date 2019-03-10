@@ -1,7 +1,7 @@
 #idea stuff
 *.iml
-target
 .idea
 
 #compiled
+target
 out

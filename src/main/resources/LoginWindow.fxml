@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="320.0" prefWidth="500.0" style="-fx-background-color: #374049;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.halabi.controllers.LoginController">
+   <children>
+      <VBox alignment="CENTER" layoutX="93.0" layoutY="27.0" prefHeight="152.0" prefWidth="315.0" spacing="30.0">
+         <children>
+            <JFXTextField fx:id="usernameField" alignment="CENTER" depthTest="ENABLE" focusColor="WHITE" prefHeight="50.0" prefWidth="300.0" promptText="Username" style="-fx-text-inner-color: white;" unFocusColor="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </JFXTextField>
+            <JFXPasswordField fx:id="passwordField" alignment="CENTER" depthTest="ENABLE" focusColor="WHITE" prefHeight="50.0" prefWidth="300.0" promptText="Password" style="-fx-text-inner-color: white;" unFocusColor="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </JFXPasswordField>
+         </children>
+      </VBox>
+      <JFXButton fx:id="loginBtn" layoutX="268.0" layoutY="215.0" onAction="#login" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #3399ff; -fx-background-radius: 20;" text="Log in" textAlignment="CENTER">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="cancelLoginBtn" layoutX="93.0" layoutY="215.0" onAction="#cancelLogin" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ff6933; -fx-background-radius: 20;" text="Cancel" textAlignment="CENTER">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
