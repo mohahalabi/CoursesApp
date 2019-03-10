@@ -8,7 +8,7 @@ public class Course {
 
     private ArrayList<Student> partecipanti = new ArrayList<>();
 
-    public Course(int id , String name) {
+    public Course(int id, String name) {
         this.name = name;
         this.id = id;
     }

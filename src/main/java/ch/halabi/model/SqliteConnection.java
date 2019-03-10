@@ -1,6 +1,7 @@
 package ch.halabi.model;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class SqliteConnection {
 
@@ -81,5 +82,49 @@ public class SqliteConnection {
         }
     }
 
+    public static ArrayList<Course> loadCourses() {
+        String sql = "SELECT * FROM course";
+        ArrayList<Course> courses = new ArrayList<>();
+        try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                Course course = new Course(id, name);
+                courses.add(course);
+            }
+        } catch (SQLException ex) {
+            //ex.printStackTrace();
+
+        }
+        return courses;
+    }
+
+    public static ArrayList<Student> loadEnrolledStudents(Course course) {
+
+        String sql = "SELECT student.id,student.name,student.surname FROM student,course,enrolment " +
+                "WHERE course.name = ? AND enrolment.id_student=student.id AND enrolment.id_course=course.id " +
+                "ORDER BY student.id";
+        ArrayList<Student> studentsEnrolled = new ArrayList<>();
+        try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, course.getName());
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String surname = rs.getString("surname");
+                Student student = new Student(id, name, surname);
+                studentsEnrolled.add(student);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
+        return studentsEnrolled;
+    }
 
 }
