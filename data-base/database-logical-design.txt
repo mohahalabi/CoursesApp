@@ -1,0 +1,4 @@
+Course = (id: integer primary key, name: varchar)
+Student= (id: integer primary key, name, surname: varchar)
+enrolment= (id_course: integer foreign key, id_student: integer foreign key)
+admin=(username: varchar primary key, password: varchar primary key)
