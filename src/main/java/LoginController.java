@@ -1,5 +1,4 @@
 import ch.halabi.model.SqliteConnection;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -10,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -22,6 +22,9 @@ public class LoginController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
+
+    @FXML
+    private ImageView logoImageview;
 
     @FXML
     private JFXButton cancelLoginBtn;
@@ -48,8 +51,10 @@ public class LoginController implements Initializable {
     @FXML
     void login(ActionEvent event) throws IOException {
 
-        String signedin = usernameField.getText();
+        String signedinAs = usernameField.getText();
+
         if (SqliteConnection.isValidLogin(usernameField.getText(), passwordField.getText())) {
+
             loginLabel.setText("");
 
 
@@ -57,8 +62,8 @@ public class LoginController implements Initializable {
             loader.setLocation(getClass().getResource("MainWindow.fxml"));
 
             Parent mainWindow = loader.load();
-            MainWindowController con = loader.getController();
-            con.getSignedinAsLabel().setText(con.getSignedinAsLabel().getText() + " " + signedin);
+            MainWindowController controller = loader.getController();
+            controller.getSignedinAsLabel().setText(controller.getSignedinAsLabel().getText() + " " + signedinAs);
 
             Stage mainStage = new Stage();
             mainStage.setTitle("Main Window");
