@@ -13,11 +13,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #374049;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="500.0" prefWidth="802.0" style="-fx-background-color: #374049;"
+            xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ch.halabi.controllers.LoginController">
    <children>
-      <VBox alignment="CENTER" layoutX="458.0" layoutY="29.0" prefHeight="440.0" prefWidth="320.0" spacing="20.0">
+       <VBox alignment="CENTER" layoutX="441.0" layoutY="29.0" prefHeight="440.0" prefWidth="337.0" spacing="20.0"
+             AnchorPane.rightAnchor="20.0">
          <children>
-            <JFXTextField fx:id="usernameField" alignment="CENTER" depthTest="ENABLE" focusColor="WHITE" prefHeight="50.0" prefWidth="300.0" promptText="Username" style="-fx-text-inner-color: white;" unFocusColor="WHITE">
+             <JFXTextField fx:id="usernameField" alignment="CENTER" blendMode="ADD" depthTest="ENABLE"
+                           focusColor="WHITE" prefHeight="50.0" prefWidth="300.0" promptText="Username"
+                           style="-fx-text-inner-color: white;" unFocusColor="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -25,7 +31,9 @@
                   <ColorAdjust />
                </effect>
             </JFXTextField>
-            <JFXPasswordField fx:id="passwordField" alignment="CENTER" depthTest="ENABLE" focusColor="WHITE" prefHeight="50.0" prefWidth="300.0" promptText="Password" style="-fx-text-inner-color: white;" unFocusColor="WHITE">
+             <JFXPasswordField fx:id="passwordField" alignment="CENTER" blendMode="ADD" depthTest="ENABLE"
+                               focusColor="WHITE" prefHeight="50.0" prefWidth="300.0" promptText="Password"
+                               style="-fx-text-inner-color: white;" unFocusColor="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -33,7 +41,8 @@
                   <ColorAdjust />
                </effect>
             </JFXPasswordField>
-            <Label fx:id="loginLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="350.0" textAlignment="CENTER" textFill="#ff6933">
+             <Label fx:id="loginLabel" alignment="CENTER" blendMode="ADD" contentDisplay="CENTER" prefHeight="38.0"
+                    prefWidth="350.0" textAlignment="CENTER" textFill="#ff6933">
                <font>
                   <Font size="12.0" />
                </font>
@@ -56,11 +65,12 @@
             <Insets bottom="40.0" left="20.0" right="20.0" top="40.0" />
          </padding>
       </VBox>
-      <Pane layoutX="28.0" layoutY="41.0" prefHeight="418.0" prefWidth="423.0">
+       <Pane layoutX="14.0" layoutY="41.0" prefHeight="418.0" prefWidth="423.0" AnchorPane.leftAnchor="20.0">
          <children>
-            <ImageView fx:id="logoImageview" fitHeight="374.0" fitWidth="415.0" layoutX="4.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+             <ImageView fx:id="logoImageview" fitHeight="332.0" fitWidth="405.0" layoutX="9.0" layoutY="37.0"
+                        pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@logo2.png" />
+                   <Image url="@../logo.png"/>
                </image>
             </ImageView>
          </children>

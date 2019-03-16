@@ -6,6 +6,7 @@ public class Course {
     private String name;
     private int id;
 
+
     private ArrayList<Student> partecipanti = new ArrayList<>();
 
     public Course(int id, String name) {
@@ -16,6 +17,10 @@ public class Course {
 
     public void addStudent(Student newStudent) {
         partecipanti.add(newStudent);
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {

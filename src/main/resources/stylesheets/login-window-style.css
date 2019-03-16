@@ -1,0 +1,21 @@
+.background-color {
+    -fx-background-color: #374049;
+}
+
+.jfx-button-default {
+    -fx-background-color: #3399ff;
+
+}
+
+.jfx-button-cancel {
+    -fx-background-color: #ff6933;
+}
+
+.jfx-text-field {
+    -fx-text-inner-color: white;
+}
+
+.jfx-password-field {
+    -fx-text-inner-color: white;
+}
+

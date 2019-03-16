@@ -1,3 +1,5 @@
+package ch.halabi.controllers;
+
 import ch.halabi.model.SqliteConnection;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -57,11 +59,10 @@ public class LoginController implements Initializable {
 
             loginLabel.setText("");
 
-
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("MainWindow.fxml"));
-
+            loader.setLocation(getClass().getResource("/fxml/MainWindow.fxml"));
             Parent mainWindow = loader.load();
+
             MainWindowController controller = loader.getController();
             controller.getSignedinAsLabel().setText(controller.getSignedinAsLabel().getText() + " " + signedinAs);
 

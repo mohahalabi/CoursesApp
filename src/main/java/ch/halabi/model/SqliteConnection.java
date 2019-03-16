@@ -24,38 +24,62 @@ public class SqliteConnection {
 
 
     public static void main(String[] args) {
-        if (getConnection() != null) {
+
+       /* if (getConnection() != null) {
             System.out.println("Success!");
         }
 
-
-        if (isValidLogin("admin", "admin"))
+        if (isValidLogin("admin", "admin")) {
             System.out.println("Success Login!");
+        }
+
+
+        try {
+            System.out.println(countRowsOfTable());
+            //insertStudentIntoCourse(new Student(5,"Ivan","Zucchi"),new Course(5,"Statistica"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+*/
 
     }
 
 
-    public static void insertCourse(int id, String name) throws SQLException {
+    public static void insertCourse(Course course) throws SQLException {
 
         String sql = "INSERT INTO Course (id,name) VALUES(?,?)";
 
         try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            stmt.setString(2, name);
+            stmt.setInt(1, course.getId());
+            stmt.setString(2, course.getName());
             stmt.executeUpdate();
         }
 
     }
 
 
-    public static void insertStudent(int id, String name, String surname) throws SQLException {
+    private static void insertStudent(Student student) throws SQLException {
 
-        String sql = "INSERT INTO Course (id,name,surname) VALUES(?,?,?)";
+        String sql = "INSERT INTO Student (id,name,surname) VALUES(?,?,?)";
 
         try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            stmt.setString(2, name);
-            stmt.setString(3, surname);
+            stmt.setInt(1, student.getId());
+            stmt.setString(2, student.getName());
+            stmt.setString(3, student.getSurname());
+            stmt.executeUpdate();
+        }
+    }
+
+
+    public static void insertStudentIntoCourse(Student student, Course course) throws SQLException {
+
+        insertStudent(student);
+
+        String sql = "INSERT INTO Enrolment (id_course, id_student) VALUES(?,?)";
+
+        try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, course.getId());
+            stmt.setInt(2, student.getId());
             stmt.executeUpdate();
         }
 
@@ -125,6 +149,34 @@ public class SqliteConnection {
 
         }
         return studentsEnrolled;
+    }
+
+    public static int countRowsOfTable(String table) throws SQLException {
+
+        String sql = "SELECT count(*) FROM ?";
+        int count = 0;
+        try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, table);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+        }
+        return count;
+    }
+
+    public static void deleteStudente(int id_student, int id_course) throws SQLException {
+
+        String sql = "DELETE FROM enrolment WHERE id_student = ? AND id_course = ?";
+
+        try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id_student);
+            stmt.setInt(2, id_course);
+            stmt.executeUpdate();
+        }
     }
 
 }

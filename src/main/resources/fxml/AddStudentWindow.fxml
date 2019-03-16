@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="vbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="440.0" prefWidth="450.0" spacing="20.0" styleClass="background-color"
+      stylesheets="@../stylesheets/add-student-style.css" xmlns="http://javafx.com/javafx/10.0.1"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.halabi.controllers.AddStudentController">
+    <children>
+        <JFXTextField fx:id="nameField" alignment="CENTER" blendMode="ADD" focusColor="#3399ff" maxHeight="-Infinity"
+                      maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0"
+                      prefWidth="300.0" promptText="Name" unFocusColor="WHITE">
+            <font>
+                <Font size="22.0"/>
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="surnameField" alignment="CENTER" blendMode="ADD" focusColor="#3399ff" maxHeight="-Infinity"
+                      maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0"
+                      prefWidth="300.0" promptText="Surname" unFocusColor="WHITE">
+            <font>
+                <Font size="22.0"/>
+            </font>
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+        </JFXTextField>
+        <ChoiceBox fx:id="choiceBox" prefHeight="30.0" prefWidth="180.0">
+            <VBox.margin>
+                <Insets top="20.0"/>
+            </VBox.margin>
+        </ChoiceBox>
+        <Label fx:id="notifLabel" alignment="CENTER" blendMode="ADD" contentDisplay="CENTER" prefHeight="30.0"
+               prefWidth="360.0" text="Insert student's info and the course" textAlignment="CENTER" textFill="#f25030">
+            <font>
+                <Font size="16.0"/>
+            </font>
+        </Label>
+        <JFXButton fx:id="confirmBtn" defaultButton="true" onAction="#confirmAddingStudent" prefHeight="40.0"
+                   prefWidth="200.0" styleClass="jfx-button-default" stylesheets="@../stylesheets/add-student-style.css"
+                   text="Confirm">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </JFXButton>
+        <JFXButton fx:id="cancelBtn" cancelButton="true" onAction="#cancelAddingStudent" prefHeight="40.0"
+                   prefWidth="200.0" styleClass="jfx-button-cancel" stylesheets="@../stylesheets/add-student-style.css"
+                   text="Cancel">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </JFXButton>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+</VBox>
