@@ -1,7 +1,7 @@
 package ch.halabi.controllers;
 
 import ch.halabi.model.Course;
-import ch.halabi.model.SqliteConnection;
+import ch.halabi.connection.SqliteConnection;
 import ch.halabi.model.Student;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;

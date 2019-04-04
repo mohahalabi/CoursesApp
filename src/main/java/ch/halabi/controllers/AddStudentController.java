@@ -1,8 +1,7 @@
 package ch.halabi.controllers;
 
+import ch.halabi.connection.SqliteConnection;
 import ch.halabi.model.Course;
-import ch.halabi.model.IDGenerator;
-import ch.halabi.model.SqliteConnection;
 import ch.halabi.model.Student;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -18,6 +17,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class AddStudentController implements Initializable {
 
@@ -55,7 +55,7 @@ public class AddStudentController implements Initializable {
         // fare in modo che l'utente scelga il corso in cui lo studente
         // viene aggiunto, così vengono passati al database sia lo studente sia il corso
 
-        int idStudent = IDGenerator.generateStudentID();
+        int idStudent = ThreadLocalRandom.current().nextInt(12, Integer.MAX_VALUE);
         String name = nameField.getText();
         String surname = surnameField.getText();
         Student student = new Student(idStudent, name, surname);

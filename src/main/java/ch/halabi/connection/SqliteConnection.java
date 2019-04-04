@@ -1,19 +1,23 @@
-package ch.halabi.model;
+package ch.halabi.connection;
 
+import ch.halabi.model.Course;
+import ch.halabi.model.Student;
+
+import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
 
 public class SqliteConnection {
 
 
-    private static final String DATA_PATH = "jdbc:sqlite:data-base/course_student.sqlite";
+    private static final URL DATA_PATH = SqliteConnection.class.getResource("/data-base/course_student.sqlite");
 
 
     public static Connection getConnection() {
 
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection(DATA_PATH);
+            conn = DriverManager.getConnection("jdbc:sqlite:" + DATA_PATH.toString());
             return conn;
 
         } catch (SQLException e) {
@@ -24,6 +28,8 @@ public class SqliteConnection {
 
 
     public static void main(String[] args) {
+
+        System.out.println(loadCourses());
 
        /* if (getConnection() != null) {
             System.out.println("Success!");

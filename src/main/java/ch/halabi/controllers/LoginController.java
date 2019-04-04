@@ -1,6 +1,6 @@
 package ch.halabi.controllers;
 
-import ch.halabi.model.SqliteConnection;
+import ch.halabi.connection.SqliteConnection;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;

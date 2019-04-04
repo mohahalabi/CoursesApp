@@ -7,13 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-class Main {
-    public static void main(String[] args) {
-        AppLauncher.main(args);
-    }
-}
-
-
 public class AppLauncher extends Application {
 
 
